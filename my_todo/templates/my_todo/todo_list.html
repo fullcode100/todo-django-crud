@@ -1,0 +1,28 @@
+<h1>Books</h1>
+
+<table border="1" style="margin: 10px">
+<thead>
+    <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Created_Date</th>
+    <th>Status</th>
+    </tr>
+</thead>
+<tbody>
+    {% for todo in object_list %}
+    <tr>
+    <td>{{ todo.title }}</td>
+    <td>{{ todo.description }}</td>
+    <td>{{ todo.created_date }}</td>
+    <td>{{ todo.state }}</td>
+    <td><a href="{% url "todo_update" todo.id %}">update</a></td>
+    <td><a href="{% url "todo_delete" todo.id %}">delete</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<a href="{% url "todo_create" %}">
+    <button>new</button>
+</a>
